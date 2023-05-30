@@ -26,13 +26,11 @@ class Nodo:
                 if self.izquierda is None:
                     self.izquierda = Nodo(valor)
                 else:
-                    print(self.valor)
                     self.izquierda.insertar(valor)
             elif valor > self.valor:
                 if self.derecha is None:
                     self.derecha = Nodo(valor)
                 else:
-                    print(self.valor)
                     self.derecha.insertar(valor)
         else:
             self.valor = valor
@@ -41,12 +39,15 @@ class Nodo:
         if valor < self.valor:
             if self.izquierda is None:
                 return str(valor) + " no encontrado"
+            print('Node: {}'.format(self.valor))
             return self.izquierda.buscar(valor)
         elif valor > self.valor:
             if self.derecha is None:
                 return str(valor) + " no encontrado"
+            print('Node: {}'.format(self.valor))
             return self.derecha.buscar(valor)
         else:
+            print('Node: {}'.format(self.valor))
             return str(self.valor) + " encontrado"
 
 
@@ -62,14 +63,15 @@ class Arbol:
 
     def buscar(self, valor):
         if self.raiz:
-            print(self.raiz.valor)
             return self.raiz.buscar(valor)
         else:
             return "Árbol vacío"
 
 
 arbol = Arbol()
-arr = generateArr(20)
+arr = generateArr(4)
+print(arr)
 fillTree(arbol, arr)
 
+arbol.buscar(int(input('Numero a buscar: ')))
 print(arbol)
